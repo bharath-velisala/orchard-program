@@ -1,8 +1,11 @@
 pipeline{
     agent any
+    
+    def project_path="orchardstudents"
+    dir(project_path){
     stages{
         stage('cloning the code'){
-            git https://github.com/bharath-velisala/CollegeServay.git
+            git 'https://github.com/bharath-velisala/CollegeServay.git'
         }
         stage('maven clean'){
             sh 'mvn clean'
@@ -14,4 +17,5 @@ pipeline{
             sh 'mvn package'
         }
     }
+}
 }
