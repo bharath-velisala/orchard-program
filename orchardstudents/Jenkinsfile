@@ -1,0 +1,26 @@
+node {
+     
+  stage('Git-Checkout') {
+   git 'https://github.com/bharath-velisala/orchard-program.git'
+  }
+    
+ def project_path="orchardstudents"
+ 
+ dir(project_path) {
+    
+  stage('Maven-Clean') {
+   sh 'mvn clean'
+  }
+    
+ stage('Maven-Compile') {
+   sh 'mvn compile'
+ }
+ stage('Maven-test'){
+   sh 'mvn test'
+  }
+   stage('Maven-Package') {
+   sh 'mvn package'
+  } 
+  
+}
+}
